@@ -6,11 +6,13 @@
 	<groupId>com.guanjianzhuo</groupId>
 	<artifactId>spring-boot-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!-- 虽然是Web应用，但是Spring Boot是默认 -->
 	<packaging>jar</packaging>
 
 	<name>spring-boot-demo</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- 父项目配置为spring-boot-starter-parent，父项目中定义了基本的依赖以及默认配置，当前项目中的配置文件application.properties配置项可以对父项目的默认配置进行覆盖 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -25,30 +27,32 @@
 	</properties>
 
 	<dependencies>
+		<!-- Actuator模块，提供了一系列用于监控的端点，获取微服务应用一些指标。http://host:port/actuator/ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- Web 开发模块 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!-- 通用测试模块 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Starter POMs 模块提供了一套一站式的技术解决方案，不再需要开发者再去寻找依赖配置复制、粘贴、使用，只需要引入对应的starter模块即可。（减少大量的配置） -->
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- 引用了Spring Boot的Maven插件，该插件能够方便启停应用，只需执行命令mvn spring-boot:run -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
